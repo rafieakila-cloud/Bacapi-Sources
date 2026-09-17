@@ -2,7 +2,9 @@
 
 <img src="bacapi-logo.svg" width="96" alt="Bacapi logo">
 
-# Bacapi Sources
+# Bacapi Sources — Kernel V5.6 Open Source
+
+> Dapat kodingannya, bukan AI-nya: engine AI dilepas di build ini (lihat `config.js`). V5.7 dalam pengembangan privat.
 
 Kode sumber Bacapi AI desktop (Bacium V5.6) — Chat/Work, plugins Word/Excel/PDF/gambar, mindmap, deep search, streaming, PWA + aplikasi Electron.
 

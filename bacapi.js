@@ -222,8 +222,17 @@ async function stream(q,onDelta,hist){
 
 // ---------- ASK ----------
 function needImage(q){ return /buatkan? (gambar|foto|ilustrasi|lukisan)|generate image|gambar.*(kelinci|kucing|pemandangan|anime)/i.test(q); }
+function aiOff(){
+  return !(window.BACAPI&&window.BACAPI.AI_ENABLED);
+}
 async function ask(first){
   const q=(first||$('q').value||'').trim(); if(!q)return;
+  if(aiOff()){
+    showHome(false);
+    $('answer').innerHTML='<div class="ai-turn">Build open source: AI dilepas. Aktifkan di <b>config.js</b> (AI_ENABLED=true + provider sendiri) atau pakai V5.7.</div>';
+    setStatus('AI nonaktif di build open source.');
+    return;
+  }
   const myAtts=atts.slice(); // tangkap dulu SEBELUM dibersihkan (bug foto hilang)
   $('q').value=''; atts=[]; $('att-list').textContent=''; // langsung bersih begitu kirim
   showHome(false); $('canvas').classList.add('hidden');
